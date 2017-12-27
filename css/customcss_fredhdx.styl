@@ -1,0 +1,455 @@
+// custom variable
+//$theme-color                  = rgb(#003c9e)
+$theme-color                  = rgb(233,33,45)
+//$theme-color-light            = rgba(#003c9e, 0.5)
+$theme-color-light            = rgba($theme-color, 0.5)
+//$author-color                 = darken(#776693,0.5)
+$author-color                 = darken($theme-color,0.5)
+$transparency-normal          = 0.8
+$transparency-sidebar					= 0.9
+
+
+/*** BACKGROUND, HEADBAND ***/
+
+.headband {
+    height: 3.5px;
+    background: none;
+    //background-image: linear-gradient(90deg, #F79533 0%, #F37055 15%, #EF4E7B 30%, #A166AB 44%, #5073B8 58%, #1098AD 72%, #07B39B 86%, #6DBA82 100%);
+}
+
+
+// background + transparency
+body{
+        background:url(/images/transformer.jpg);
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-position:center;
+}
+
+.post-block {
+	//background: rgba(255,255,255,0.9);
+	background: rgba(0,0,0,0.9);
+	border-radius: 10px;
+}
+
+
+/*** POST ***/
+
+// post title + link title
+.posts-expand .post-title .post-title-link {
+  color: darken($theme-color,0.5);
+}
+
+.posts-expand .post-title-link::before {
+    height: 5px;
+    background-color: darken($theme-color,0.5);
+    //background-image: linear-gradient(90deg, #F79533 0%, #F37055 15%, #EF4E7B 30%, #A166AB 44%, #5073B8 58%, #1098AD 72%, #07B39B 86%, #6DBA82 100%);
+}
+
+// title gradient
+.post-body h1, h2, h3, h4, h5, h6 {
+    //border-left: 5px solid rgb(34, 244, 246);
+    //margin-left: -15px;
+    //padding-left: 10px;
+    background-image: linear-gradient(90deg, #3a6186, #89253e);
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.post-nav-item a:hover {
+	color:$theme-color;
+}
+
+// post button (readmore)
+.post-button {
+	.btn {
+		color: rgba($theme-color, $transparency-sidebar);
+		background: rgba(255,255,255,0.7);
+		border: 1.5px solid rgba($theme-color, $transparency-normal);
+		border-radius: 5px
+	}
+	.btn:hover {
+		border: 1.5px solid rgba(255,255,255,0);
+			background: rgba($theme-color, $transparency-normal);
+	}
+}
+
+
+/*** HYPERLINKS ***/
+
+// hyper-links
+a {
+  color:$black-light;
+  border-bottom: 1px solid $grey-dark;
+  word-wrap: break-word;
+
+  &:hover{
+    color:$theme-color;
+    border-bottom-color:$theme-color;
+  }
+}
+
+
+/*** SIDEBAR ***/
+
+// site-meta background
+.site-meta {
+    //background: rgb(17, 0, 86);
+    background: rgb(0, 0, 0);
+	//background-image: linear-gradient(45deg, #F79533 0%, #F37055 15%, #EF4E7B 30%, #A166AB 44%, #5073B8 58%, #1098AD 72%, #07B39B 86%, #6DBA82 100%);
+}
+
+// menu background
+.site-nav {
+  //background:white;
+  background:black;
+}
+
+// menu hover
+.menu .menu-item {
+	font-weight:bold;
+  a {
+    &:hover{
+      background: #f9f9f980;
+      color: $theme-color;
+      border-bottom-color: rgba($theme-color,0.3);
+    }
+  }
+}
+
+.menu-item-active a {
+  @extend .menu .menu-item a:hover;
+  // optional
+  // .menu-item-icon {color:$color_code}
+
+  &:after { // the tiny square dot at the right of each menu item
+    background-color: $theme-color;
+  }
+}
+
+// sidebar general
+
+.site-author-image {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 80px;
+    transition: transform 1.0s ease-out;
+}
+
+img:hover {
+    transform: rotateZ(360deg);
+}
+
+.posts-expand .post-body img:hover {
+    transform: initial;
+}
+
+// sidebar background + description
+.sidebar-inner {
+  //background:url(/images/sidebar.jpg);
+  background:black;
+}
+
+.site-author-name {
+  color: $author-color;
+}
+
+.site-state {
+  p,span,a {color: $author-color};
+}
+
+.site-state-item {
+  p,span,a {color: $author-color};
+}
+
+// sidebar feed
+.feed-link {
+    border: none;
+}
+.feed-link a {
+    color: $author-color;
+
+    i {color: $author-color;}
+}
+
+.feed-link a:hover {
+    color: white;
+    background: $theme-color;
+
+    i {color: white;}
+}
+
+// sidebar friendly links
+.links-of-blogroll-title {
+    color: rgba(34, 244, 246, 0.75);
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+// sidebar author-item (social icon)
+.links-of-author-item a {
+    color: $author-color;
+    border-bottom: none;
+}
+.links-of-author-item a:hover {
+		background: $theme-color;
+    color: rgb(255, 255, 255);
+}
+
+// sidebar toc title
+.sidebar-nav li {
+  &:hover { color: rgba($theme-color, $transparency-sidebar); }
+}
+
+.sidebar-nav .sidebar-nav-active {
+  color: rgba($theme-color, $transparency-sidebar);
+	border-bottom-width: 1.5px;
+  border-bottom-color: rgba($theme-color, $transparency-sidebar);
+
+  &:hover { color: rgba($theme-color,$transparency-sidebar); }
+}
+
+// sidebar-toc link
+.post-toc ol a {
+    color: $black-light;
+    border-bottom: 1px solid #999;
+}
+
+.post-toc ol a:hover {
+    color: $theme-color;
+    border-bottom-color: $theme-color;
+}
+
+// sidebar-toc active link
+.post-toc .nav .active > a {
+    color: $theme-color;
+    border-bottom-color: rgba($theme-color,$transparency-sidebar);
+}
+.post-toc .nav .active > a:hover {
+    color: $theme-color;
+    border-bottom-color: rgba($theme-color,$transparency-sidebar);
+}
+
+// sidebar toggle button
+.sidebar-toggle {
+    right: 10px;
+    bottom: 43px;
+    background: rgba($theme-color, 0.8);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
+}
+
+/*** TAG CLOUD ***/
+.tag-cloud a {
+    //color: rgb(5, 147, 211);
+    color: rgb(0, 128, 128);
+    border-bottom: 1px solid rgb(5, 147, 211);
+    text-decoration: none;
+
+		&:hover {
+    color: $theme-color;
+    border-bottom: 1px solid rgb(255, 118, 0);
+    text-decoration: none;
+		}
+}
+
+//categories
+.category-all-page .category-list-count {
+  color: #3a6186;
+
+  &:before {
+    display: inline;
+    content: " ("
+  }
+
+  &:after {
+    display: inline;
+    content: ") "
+  }
+}
+
+/*** COMMENTS ***/
+
+.comments {
+    margin-top: 50px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+/*** ARCHIVE TIMELINE ***/
+
+.collection-title h1 {
+  //background-image: linear-gradient(90deg,#f79533 0,#f37055 15%,#ef4e7b 30%,#a166ab 44%,#5073b8 58%,#1098ad 72%,#07b39b 86%,#6dba82 100%);
+  background-image: linear-gradient(90deg, #1300A3 0%, #0E1C9B 22%, #0B3095 38%, #07478E 56%, #035F87 75%, #017183 89%, #008080 100%);
+	color: white;
+}
+
+// timeline
+.posts-collapse::after {
+    margin-left: -2px;
+    background: rgb(255, 118, 0);
+    background-image: linear-gradient(180deg,#1300A3 0%, #08478F 56%, #06508C 63%, #05578A 69%, #045E88 75%, #036686 81%, #017083 89%, #008080 100%);
+    //background-image: linear-gradient(180deg,#f79533 0,#f37055 15%,#ef4e7b 30%,#a166ab 44%,#5073b8 58%,#1098ad 72%,#07b39b 86%,#6dba82 100%);
+}
+// decoration dot on timeline
+.posts-collapse .collection-title::before {
+    background: rgb(255, 255, 255);
+}
+// first decoration dot on timeline
+.page-archive .posts-collapse .archive-move-on {
+    top: 10px;
+    opacity: 1;
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+// active decoration dot
+.posts-collapse .post-header::before {
+    background: rgb(255, 255, 255);
+}
+.posts-collapse .post-header:hover::before {
+    background: rgba($theme-color, $transparency-sidebar);
+}
+// timeline title
+.posts-collapse .post-title a {
+		color: $black-light;
+}
+.posts-collapse .post-title a:hover {
+    color: rgba($theme-color, $transparency-sidebar);
+}
+
+// timeline dotted line underneath title
+.posts-collapse .post-header:hover {
+    border-bottom-color: rgba($theme-color, $transparency-sidebar);
+}
+
+
+/*** FOOTER ***/
+
+.footer {
+    background: rgba(255, 255, 255, 0.75);
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    border-top-width: 3px;
+    border-top-style: solid;
+    border-top-color: rgba(255, 118, 0, 0.75);
+    border-top-color: rgba($theme-color, 0.75);
+    padding-top: 0px;
+    position: absolute;
+    left: 0;
+    //bottom: 0;
+    //box-shadow: 0px -10px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+
+/*** HEXO TAGS: BLOCKQUOTE ***/
+
+blockquote {
+   // padding-top: 3px;
+    padding-right: 25px;
+    //padding-bottom: 3px;
+    padding-left: 25px;
+    //color: rgba(255, 255, 255, 0.85);
+    border-left: 5px solid darken($theme-color,0.5);
+}
+
+blockquote.question {
+    //color: rgba(0, 0, 0, 0.95);
+    //padding-left: 25px;
+    border-left: 5px solid rgb(5, 154, 37);
+    //background: rgba(255, 255, 255, 0.75);
+    //border-top-right-radius: 3px;
+    //border-bottom-right-radius: 3px;
+}
+
+/*** TABLE ***/
+
+table {
+    //background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba($theme-color, $transparency-normal);
+    color: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(221, 221, 221, 0.9);
+}
+table>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(240, 240, 240, 0.9);
+}
+table>tbody>tr:hover {
+    background-color: rgba(245, 245, 245, 0.9);
+}
+th, td {
+    border-bottom: 3px solid rgba(221, 221, 221, 0.9);
+    border-right: 1px solid rgba(238, 238, 238, 0.9);
+}
+
+/*** CODE BLOCK ***/
+
+code {
+    color: rgba(0, 0, 0, 0.95);
+    background: rgba(255, 255, 255, 0.75);
+    margin: 1px 3px;
+    padding: 1px 3px;
+}
+
+/*** LOCAL SEARCH ***/
+
+.local-search-popup .search-icon, .local-search-popup .popup-btn-close {
+    //color: rgb(255, 118, 0);
+    color: $theme-color;
+    margin-top: 7px;
+}
+.local-search-popup .local-search-input-wrapper input {
+    padding: 9px 0;
+    height: 21px;
+    background: rgb(255, 255, 255);
+}
+.local-search-popup .popup-btn-close {
+    border-left: none;
+}
+
+/*** BACK-TO-TOP ***/
+
+.back-to-top {
+    right: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    background: $theme-color;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
+}
+.back-to-top.back-to-top-on {
+    bottom: 10px;
+}
+
+/*** SCROLLBAR ***/
+/* ref: https://segmentfault.com/a/1190000003708894 */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+/* track */
+::-webkit-scrollbar-track {
+    background: #ccc;
+}
+/*  scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: darken($theme-color, 0.5);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: lighten($theme-color,0.5);
+}
+
+h2.love {
+    border-left: none;
+    //color: rgb(255, 113, 168);
+    color: $theme-color;
+    -webkit-text-fill-color: unset;
+}
+

@@ -1,0 +1,31 @@
+@import url("index-ver.css");
+@import url("index-land.css");
+
+/* swiper css */
+html, body {} body {} .swiper-container {} .swiper-slide {}
+/* shared css */
+.bk_archive {} .bk_archive_l {} .responsive-width {} .ghost-button {} .ghost-button:hover, .ghost-button:active {}
+
+/* disable css for <a> */
+a {color:inherit; text-decoration: none;}
+
+/* landscape css */
+@media screen and (min-width:700px)  {
+    .swiper-pagination-bullet {}}
+
+@media screen and (orientation:landscape) {
+		.bk_archive {} .bk1_name {} .bk1_name_pinyin {}
+}
+
+
+@media screen and (orientation:landscape) and (min-aspect-ratio:16/10){
+		.bk_archive {} .bk1_name {} .bk1_name_pinyin {}
+}
+
+@media screen and (orientation:portrait) {
+		.bk_archive {} .bk1_name {} .bk1_name_pinyin {}
+}
+
+@media screen and (orientation:portrait) and (min-width: 700px) {
+		.bk_archive {} .bk1_name {} .bk1_name_pinyin {}
+}
