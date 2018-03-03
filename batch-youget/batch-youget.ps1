@@ -1,6 +1,10 @@
 chcp 65001
 
+if (!(Test-Path -PathType Leaf error.txt)) {
+    New-Item -ItemType File error.txt
+}
 
+$VideoTitle = ""
 foreach($line in Get-Content -Encoding UTF8 .\vlist.txt) {
     Copy-Item vlist.txt vlist-old.txt
 
@@ -9,6 +13,7 @@ foreach($line in Get-Content -Encoding UTF8 .\vlist.txt) {
         if (!(Test-Path -Path Downloaded)) {
             New-Item -ItemType directory -Path Downloaded
         }
+        $pvalue = 1
         while ($counter -ne 5) {
             Try{
                 $json = you-get.exe --json --format=mp4 $line | ConvertFrom-Json
@@ -18,17 +23,28 @@ foreach($line in Get-Content -Encoding UTF8 .\vlist.txt) {
                         continue
                     }
                     else {
+                        $pvalue = 0
                         break
                     }
                 }
                 else {
+                    Add-Content error.txt -Value $VideoTitle
+                    Add-Content error.txt -Value $line
                     break
                 }
             }
             Catch{
+                Start-Sleep(3)
                 continue
             }
         }
+
+        if ($pvalue -eq 1) {
+            Add-Content error.txt -Value $VideoTitle
+            Add-Content error.txt -Value $line
+        }
+    } else {
+        $VideoTitle = $line
     }
 
     get-content -encoding UTF8 vlist.txt | Select-Object -skip 2 | set-content -encoding UTF8 "tmp.txt"
