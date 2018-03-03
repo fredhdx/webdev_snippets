@@ -35,3 +35,14 @@ foreach($line in Get-Content -Encoding UTF8 .\vlist.txt) {
     Move-Item tmp.txt vlist.txt -Force
 }
 
+
+# StopWatch
+# $StopWatch = New-Object -TypeName System.Diagnostics.Stopwatch
+# $StopWatch.Start()  .Stop()   .IsRunning   .Elapsed
+# $time = $StopWatch.Elapsed | ConvertTo-Json | ConvertFrom-Json
+
+# Send key
+# $x = New-Object -COM WScript.Shell
+# $x.SendKeys($KeyToPress)
+# $KeyToPress = '~' # ENTER key
+
